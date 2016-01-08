@@ -1,0 +1,56 @@
+#papakidomains_search li {
+	
+	
+}
+#main #papakidomains_search li {
+	padding:5px;
+	padding-left:0;
+}
+#main #papakidomains_search ul {
+	padding:0;
+	margin:0;
+	overflow:hidden;
+}
+#main #papakidomains_search ul.search_tlds {
+	margin:5px;
+}
+.search_tlds li {
+	padding:5px;
+	height:20px;
+	width: 15%;
+}
+#main #papakidomains_search ul li input {
+	width:20px;
+}
+#papakidomains_search > div > label{display:block;}
+#papakidomains_search input#domain {
+	border: 1px solid #3D598F;
+	font-size: 16px;
+	padding: 8px 5px;
+	width: 300px;display:inline-block; margin:3px;
+}
+#papakidomains_search select#tld{border: 1px solid #3D598F; font-size:16px; padding: 7px 3px; width:100px;display:inline-block;margin:3px;}
+#papakidomains_search td {
+	text-align:center
+}
+#main #papakidomains_search .available_tlds li{font-size: 16px;
+    padding-right: 0;
+  }
+#papakidomains_search button#search_btn{
+    font-size: 16px;
+    height: 31px;margin:3px;
+     padding:0 20px; display:inline-block;
+}
+#papakidomains_search img#loading{vertical-align: baseline;}
+#main #papakidomains_search .available_tlds li.loading{}
+#main #papakidomains_search .available_tlds li.taken{}
+#papakidomains_search form#add_domains ul.available_tlds li span.msg{font-weight:bold; display:inline-block; margin:0 0 0 5px; color:#008000;}
+#papakidomains_search form#add_domains ul.available_tlds li.taken span.msg{ color:#990000;}
+/*
+#register_form table,
+#register_form td{border:0; border-collapse:separate}
+#register_form {font-size:13px;}
+#register_form td{padding:2px;}
+#register_form input[type="text"],
+#register_form select{border:1px solid #666; padding:2px 3px; width:250px;}
+#register_form select{width:258px}*/

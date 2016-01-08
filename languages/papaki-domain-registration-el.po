@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-01-23 15:20+0200\n"
+"PO-Revision-Date: 2015-01-23 15:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: papaki-domain-registration.php\n"
+
+#: papaki-domain-registration.php:25
+msgid ""
+"Papaki Domain Registration is not configured yet. Your API key is required."
+msgstr ""
+"Το plugin Papaki Domain Registration δεν έχει ρυθμιστεί σωστά. Το API key "
+"είναι κενό."
+
+#: papaki-domain-registration.php:33
+msgid "Papaki Domain Registration Options"
+msgstr "Επιλογές Papaki Domain Registration"
+
+#: papaki-domain-registration.php:33
+msgid "Domain Registration"
+msgstr "Κατοχύρωση Ονομάτων"
+
+#: papaki-domain-registration.php:45
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: papaki-domain-registration.php:48
+msgid "Papaki Domain Registration"
+msgstr "Κατοχύρωση Domain Names"
+
+#: papaki-domain-registration.php:60
+msgid "General Settings"
+msgstr "Γενικές ρυθμίσεις"
+
+#: papaki-domain-registration.php:61
+msgid "Papaki Reseller API Key"
+msgstr "API Key Μεταπωλητή Papaki"
+
+#: papaki-domain-registration.php:62
+msgid "Papaki Admin Email"
+msgstr "Email Διαχειριστή"
+
+#: papaki-domain-registration.php:63
+msgid "Allowed Tlds"
+msgstr "Επιτρεπόμενες καταλήξεις"
+
+#: papaki-domain-registration.php:96
+msgid "The API Key cannot be empty."
+msgstr "Το API Key δεν έχει τιμή."
+
+#: papaki-domain-registration.php:106
+msgid "Search Error"
+msgstr "Σφάλμα Αναζήτησης"
+
+#: papaki-domain-registration.php:109
+msgid "Available!"
+msgstr "Διαθέσιμο!"
+
+#: papaki-domain-registration.php:110
+msgid "Not available for registration"
+msgstr "Μη διαθέσιμο για κατοχύρωση"
+
+#: papaki-domain-registration.php:111
+msgid "You have not completed your fullname."
+msgstr "Δεν έχετε συμπληρώσει την Επωνυμία σας"
+
+#: papaki-domain-registration.php:112
+msgid "You have not completed your first name"
+msgstr "Δεν έχετε συμπληρώσει το όνομά σας"
+
+#: papaki-domain-registration.php:113
+msgid "You have not completed your last name"
+msgstr "Δεν έχετε συμπληρώσει το επίθετό σας"
+
+#: papaki-domain-registration.php:114
+msgid "You have not completed your phone"
+msgstr "Δεν έχετε συμπληρώσει το τηλέφωνό σας"
+
+#: papaki-domain-registration.php:115
+msgid "You have not completed your email"
+msgstr "Δεν έχετε συμπληρώσει το email σας"
+
+#: papaki-domain-registration.php:116
+msgid "Please enter a correct Email"
+msgstr "Συμπληρώστε μια σωστή διεύθυνση Email"
+
+#: papaki-domain-registration.php:117
+msgid "You have not completed your address"
+msgstr "Δεν έχετε συμπληρώσει την διεύθυνσή σας"
+
+#: papaki-domain-registration.php:118
+msgid "Must contain a valid phone number"
+msgstr "Πρέπει να είναι ένας σωστός αριθμός τηλεφώνου"
+
+#: papaki-domain-registration.php:119
+msgid "Must contain a valid number fax"
+msgstr "Πρέπει να είναι ένας σωστός αριθμός FAX"
+
+#: papaki-domain-registration.php:120
+msgid "You have not completed your city"
+msgstr "Δεν έχετε συμπληρώσει την πόλη"
+
+#: papaki-domain-registration.php:121
+msgid "You have not completed your zipcode"
+msgstr "Δεν έχετε συμπληρώσει τον Ταχ. Κωδικό"
+
+#: papaki-domain-registration.php:132 papaki-domain-registration.php:160
+#: papaki-domain-registration.php:173
+msgid "Papaki Domains Registration"
+msgstr "Κατοχύρωση Domains Papaki"
+
+#: papaki-domain-registration.php:134
+msgid "Domain"
+msgstr "Domain"
+
+#: papaki-domain-registration.php:146
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: papaki-domain-registration.php:151
+msgid "Availability Results"
+msgstr "Αποτελέσματα"
+
+#: papaki-domain-registration.php:154
+msgid "Register"
+msgstr "Κατοχύρωση"
+
+#: papaki-domain-registration.php:163
+msgid ""
+"You haven't selected any domains for registration. Please go back and choose "
+"the domains that you wish to register."
+msgstr ""
+"Δεν έχετε επιλέξει domains για κατοχύρωση. Θα πρέπει να πάτε στο προηγούμενο "
+"βήμα και να επιλέξετε τα domains που επιθυμείτε για κατοχύρωση."
+
+#: papaki-domain-registration.php:175
+msgid ""
+"Your registration has been sent. Our representatives will soon reply to you."
+msgstr ""
+"Η αίτηση κατοχύρωσης έχει αποσταλεί. Σύντομα θα επικοινωνήσουμε μαζί σας."
+
+#: papaki-domain-registration.php:178
+msgid "An error occured. Please contact our support department."
+msgstr ""
+"Συνέβη κάποιο σφάλμα. Παρακαλούμε επικοινωνήστε με το τμήμα υποστήριξης."
+
+#: papaki-domain-registration.php:285
+msgid "Domain Names"
+msgstr "Domain Names"
+
+#: papaki-domain-registration.php:286
+msgid ""
+"Complete details of the person or company that manages <b>  the domain "
+"name(s)</b> and then press <b> CONTINUE </b> at the bottom of the page. "
+"<strong> It is important the information you provide is accurate. </strong> "
+"<BR>   The data you provide during registration is strictly private and used "
+"only by our company and the domain name Registry. <br> in no case will not "
+"be disclosed or used by others."
+msgstr ""
+"Συμπληρώστε τα στοιχεία του ατόμου ή της εταιρίας που θα <b>Διαχειρίζεται</"
+"b> το όνομα/ονόματα που κατοχυρώνετε και μετά πατήστε το κουμπί <b>ΣΥΝΕΧΕΙΑ</"
+"b> που βρίσκεται στο κάτω μέρος της σελίδας.<strong> Είναι σημαντικό οι "
+"πληροφορίες που δίνετε να είναι ακριβείς.</strong><BR> Τα στοιχεία που "
+"καταχωρείτε κατά την εγγραφή σας είναι αυστηρά προσωπικά και θα "
+"χρησιμοποιηθούν μόνο από την εταιρία μας και το μητρώο ονομάτων χώρου.<br>Σε "
+"καμία περίπτωση δε θα γνωστοποιηθούν και δεν θα χρησιμοποιηθούν από τρίτους."
+
+#: papaki-domain-registration.php:288
+msgid "Company Name / Organization - or - <br /> Your Name"
+msgstr "Επωνυμία Εταιρίας/Φορέα - ή - <br />Το Ονοματεπώνυμο σας"
+
+#: papaki-domain-registration.php:289
+msgid ""
+"It is important to provide your full name or full company name. Otherwise "
+"the domain name can not be adopted by the EU"
+msgstr ""
+"Είναι σημαντικό να δώσετε το πλήρες ονοματεπώνυμο ή την πλήρη επωνυμία της "
+"εταιρίας. Σε διαφορετική περίπτωση το όνομα χώρου μπορεί να μην εγκριθεί από "
+"την ΕΕ"
+
+#: papaki-domain-registration.php:290
+msgid "First Name"
+msgstr "Όνομα"
+
+#: papaki-domain-registration.php:291
+msgid "Last Name"
+msgstr "Επίθετο"
+
+#: papaki-domain-registration.php:292
+msgid "Email"
+msgstr "Email"
+
+#: papaki-domain-registration.php:293
+msgid ""
+"Example: <u> name@yahoo.gr </u> You "
+"must enter a correct email address as this email will send you a reminder "
+"expired registration and other important information. "
+msgstr ""
+"Παράδειγμα: <u>onoma@yahoo.gr</u> Πρέπει να "
+"πληκτρολογήσετε μια σωστή διεύθυνση email διότι σε αυτό το email θα σας "
+"στέλνουμε την υπενθύμιση λήξης καταχώρησης και άλλες σημαντικές πληροφορίες."
+
+#: papaki-domain-registration.php:294
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: papaki-domain-registration.php:295
+msgid "Area"
+msgstr "Περιοχή"
+
+#: papaki-domain-registration.php:296
+msgid "City / Town"
+msgstr "Πόλη / Χωριό"
+
+#: papaki-domain-registration.php:297
+msgid "Zip Code"
+msgstr "Ταχ. Κώδικας"
+
+#: papaki-domain-registration.php:298
+msgid "Country"
+msgstr "Χώρα"
+
+#: papaki-domain-registration.php:299
+msgid "Phone"
+msgstr "Τηλέφωνο"
+
+#: papaki-domain-registration.php:300
+msgid "eg"
+msgstr "πχ"
+
+#: papaki-domain-registration.php:301
+msgid "Phone (Optional)"
+msgstr "Κινητό (Προαιρετικό)"
+
+#: papaki-domain-registration.php:302
+msgid "Fax (Optional)"
+msgstr "Fax (Προαιρετικό)"
+
+#: papaki-domain-registration.php:303
+msgid "Continue"
+msgstr "Συνέχεια"
