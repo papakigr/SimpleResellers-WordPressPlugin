@@ -70,12 +70,12 @@ function SearchOne(domain,tld,checked,search_others){
 						else c='';
 						//$('form#add_domains ul.available_tlds li#'+theid).append('<label><input type="checkbox" name="domains[]" value="'+data[0].domain+'" '+c+'/>'+data[0].domain+'</label>').show();
 						$('form#add_domains ul.available_tlds li#'+theid+' label input').removeAttr('disabled').val(data[0].domain);//.prepend('<input type="checkbox" name="domains[]" value="'+data[0].domain+'" '+c+'/> ');
-						 $('form#add_domains ul.available_tlds li#'+theid+'').addClass('available').append($('<span/>').text(pdr_script_vars.msg_avail).addClass('msg'));
+						 $('form#add_domains ul.available_tlds li#'+theid+'').addClass('available').append($('<span/>').text(' - '+pdr_script_vars.msg_avail).addClass('msg'));
 						$('form#add_domains #pd-submit').show();
 					}
 					else{
 						$('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken');
-						$('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken').append($('<span/>').text(pdr_script_vars.msg_taken).addClass('msg'));
+						$('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken').append($('<span/>').text(' - '+pdr_script_vars.msg_taken).addClass('msg'));
 					}
 				 }
 				 $('form#add_domains ul.available_tlds li#'+theid+'').removeClass('loading');
