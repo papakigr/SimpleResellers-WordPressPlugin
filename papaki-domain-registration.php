@@ -3,7 +3,7 @@
  * Plugin Name: Papaki Domain Registration
  * Plugin URI: http://www.papaki.gr
  * Description: Plugin for domain search and registration using the Papaki Reseller API
- * Version: 1.5
+ * Version: 2.1
  * Author: Papaki
  * License: Copyright (C) Papaki.gr - All Rights Reserved
  */
@@ -51,16 +51,44 @@ function papaki_domain_reg_options() {
     do_settings_sections( 'papaki-domain-registration' );
     submit_button();
     echo '</form>';
+   /* echo '<form method="post" action="options.php"> ';   
+    settings_fields( 'papaki_domain_reg-group1' );
+    do_settings_sections( 'papaki-domain-registration' );
+    submit_button();
+    echo '</form>';*/
     echo '</div>';
 }
 function register_papaki_domain_reg() { // whitelist options
   register_setting( 'papaki_domain_reg-group', 'api_key' ,'papaki_domain_reg_settings_validation');
   register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_admin_email' );
   register_setting( 'papaki_domain_reg-group', 'allowed_tlds' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_search_title' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_domain_label' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_button_label' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_results_heading' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_results_button' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_page_title' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_page_btn' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_page_success' );
+  register_setting( 'papaki_domain_reg-group', 'papaki_domain_reg_page_fail' );
+  
   add_settings_section( 'section-one', __('General Settings','papaki-domain-registration'), 'section_one_callback', 'papaki-domain-registration' );
   add_settings_field( 'field-one', __('Papaki Reseller API Key','papaki-domain-registration'), 'field_one_callback', 'papaki-domain-registration', 'section-one' );
   add_settings_field( 'field-two', __('Papaki Admin Email','papaki-domain-registration'), 'field_two_callback', 'papaki-domain-registration', 'section-one' );
   add_settings_field( 'field-three', __('Allowed Tlds','papaki-domain-registration'), 'field_3_callback', 'papaki-domain-registration', 'section-one' );
+  
+  add_settings_section( 'section-two', __('Search Page','papaki-domain-registration'), 'section_one_callback', 'papaki-domain-registration' );
+  add_settings_field( 'field-search-title', __('Page Heading','papaki-domain-registration'), 'papaki_domain_reg_search_title_callback', 'papaki-domain-registration', 'section-two' );
+  add_settings_field( 'field-domain-label', __('Domain Label','papaki-domain-registration'), 'papaki_domain_reg_domain_label_callback', 'papaki-domain-registration', 'section-two' );
+  add_settings_field( 'field-button-label', __('Button Label','papaki-domain-registration'), 'papaki_domain_reg_button_label_callback', 'papaki-domain-registration', 'section-two' );
+  add_settings_field( 'field-results-heading', __('Results Heading','papaki-domain-registration'), 'papaki_domain_reg_results_heading_callback', 'papaki-domain-registration', 'section-two' );
+  add_settings_field( 'field-results-button', __('Results Button','papaki-domain-registration'), 'papaki_domain_reg_results_button_callback', 'papaki-domain-registration', 'section-two' );
+  
+  add_settings_section( 'section-three', __('Registration Page','papaki-domain-registration'), 'section_one_callback', 'papaki-domain-registration' );
+  add_settings_field( 'field-reg-page-title', __('Page Heading','papaki-domain-registration'), 'papaki_domain_reg_page_title_callback', 'papaki-domain-registration', 'section-three' );
+  add_settings_field( 'field-reg-page-btn', __('Continue Button','papaki-domain-registration'), 'papaki_domain_reg_page_btn_callback', 'papaki-domain-registration', 'section-three' );
+  add_settings_field( 'field-reg-page-success', __('Sucess Message','papaki-domain-registration'), 'papaki_domain_reg_page_success_callback', 'papaki-domain-registration', 'section-three' );
+  add_settings_field( 'field-reg-page-fail', __('Failure Message','papaki-domain-registration'), 'papaki_domain_reg_page_fail_callback', 'papaki-domain-registration', 'section-three' );
 }
 function section_one_callback() {
     //echo 'Some help text goes here.';
@@ -103,6 +131,50 @@ function papaki_domain_reg_settings_validation($input){
     //die(print_r($input,1));
     return $output;
 }
+function papaki_domain_reg_search_title_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_search_title' ,'Papaki Domains Registration' ));       
+    echo "<input size='40' maxlength='255' type='text' name='papaki_domain_reg_search_title' value='$setting' />";
+}
+function papaki_domain_reg_domain_label_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_domain_label' ,'Domain') );       
+    if($setting=='') $setting='Domain';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_domain_label' value='$setting' />";
+}
+function papaki_domain_reg_button_label_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_button_label','Search'  ));       
+    if($setting=='') $setting='Search';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_button_label' value='$setting' />";
+}
+function papaki_domain_reg_results_heading_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_results_heading','Availability Results' ) );       
+    if($setting=='') $setting='Availability Results';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_results_heading' value='$setting' />";
+}
+function papaki_domain_reg_results_button_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_results_button' ,'Register' ));       
+    if($setting=='') $setting='Register';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_results_button' value='$setting' />";
+}
+function papaki_domain_reg_page_title_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_page_title','Domain Names' ) );       
+    if($setting=='') $setting='Domain Names';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_page_title' value='$setting' />";
+}
+function papaki_domain_reg_page_btn_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_page_btn','Continue' ) );       
+    if($setting=='') $setting='Continue';
+    echo "<input size='20' maxlength='255' type='text' name='papaki_domain_reg_page_btn' value='$setting' />";
+}
+function papaki_domain_reg_page_success_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_page_success','Your registration has been sent. Our representatives will soon reply to you.' ) );       
+    if($setting=='') $setting='Your registration has been sent. Our representatives will soon reply to you.';
+    echo "<input size='100' type='text' name='papaki_domain_reg_page_success' value='$setting' />";
+}
+function papaki_domain_reg_page_fail_callback(){
+    $setting = esc_attr( get_option( 'papaki_domain_reg_page_fail','An error occured. Please contact our support department.' ) );       
+    if($setting=='') $setting='An error occured. Please contact our support department.';
+    echo "<input size='100'type='text' name='papaki_domain_reg_page_fail' value='$setting' />";
+}
 function pdr_load_scripts() {
  
     wp_enqueue_script('pdr-script', plugin_dir_url( __FILE__ ) . 'includes/scripts.js');
@@ -141,9 +213,9 @@ function the_domain_page($atts ){
     $step=isset($_POST['step'])?$_POST['step']:'search';
     if($step=='search'){
         $html='<div id="papakidomains_search">';
-        $html.='<h1>'.__('Papaki Domains Registration','papaki-domain-registration').'</h1>';
+        $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Papaki Domains Registration'),'papaki-domain-registration').'</h1>';
         $html.='<div style="">
-              <label><strong style="font-size:16px;">'.__('Domain','papaki-domain-registration').':</strong>
+              <label><strong style="font-size:16px;">'.__(get_option( 'papaki_domain_reg_domain_label','Domain'),'papaki-domain-registration').':</strong>
                 
               </label>
               <input type="text" name="domain" id="domain" value="www.'.(isset($_GET['domain'])?str_replace('www.','',$_GET['domain']):'').'"/>
@@ -161,7 +233,7 @@ function the_domain_page($atts ){
               }
               $html.='
                 </select>
-              <button type="button" id="search_btn" onclick="Search()">'.__('Search','papaki-domain-registration').'</button>
+              <button type="button" id="search_btn" onclick="Search()">'.__(get_option( 'papaki_domain_reg_button_label','Search'),'papaki-domain-registration').'</button>
             <img src="' . plugins_url( 'img/ajax-loader.gif', __FILE__ ) . '" style=" visibility:hidden" alt="Loading" id="loading" />
             </div>';
         if(isset($_GET['search']) && $_GET['search']=='true'){
@@ -173,16 +245,16 @@ function the_domain_page($atts ){
         }
         $html.='<hr />';
         $html.=' <form  id="add_domains" action="'.get_home_url(null,'domains').'" method="post" style="display:none">
-        <h2>'.__('Availability Results','papaki-domain-registration').'</h2>
+        <h2>'.__(get_option( 'papaki_domain_reg_results_heading' ,'Availability Results'),'papaki-domain-registration').'</h2>
         <ul class="available_tlds">
         </ul>
-        <input id="pd-submit" style="display:none" type="submit" value="'.__('Register','papaki-domain-registration').'" />';
+        <input id="pd-submit" style="display:none" type="submit" value="'.__(get_option( 'papaki_domain_reg_results_button' ,'Register'),'papaki-domain-registration').'" />';
         $html.='<input type="hidden" name="step" value="register"/>  </form>';
         $html.='</div>';
     }
     elseif($step=='register'){
         $html.= '<div id="domain-registration-form">';
-        $html.='<h1>'.__('Papaki Domains Registration','papaki-domain-registration').'</h1>';
+        $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Papaki Domains Registration'),'papaki-domain-registration').'</h1>';
         $domains=$_POST['domains'];
         if(empty($domains)){
             $html.= '<div class="error">'.__('You haven\'t selected any domains for registration. Please go back and choose the domains that you wish to register.','papaki-domain-registration').'</div>';
@@ -195,12 +267,12 @@ function the_domain_page($atts ){
     }
     elseif($step=='checkout'){
         $html.= '<div id="domain-registration-form" class="checkout">';
-        $html.='<h1>'.__('Papaki Domains Registration','papaki-domain-registration').'</h1>';
+        $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Papaki Domains Registration'),'papaki-domain-registration').'</h1>';
         if(SendRegistration($_POST)){
-            $html.='<h3>'.__('Your registration has been sent. Our representatives will soon reply to you.','papaki-domain-registration').'</h3>';
+            $html.='<h3>'.__(get_option( 'papaki_domain_reg_page_success','Your registration has been sent. Our representatives will soon reply to you.' ) ,'papaki-domain-registration').'</h3>';
         }
         else{
-            $html.='<h3>'.__('An error occured. Please contact our support department.','papaki-domain-registration').'</h3>';
+            $html.='<h3>'.__(get_option( 'papaki_domain_reg_page_fail','An error occured. Please contact our support department.' ),'papaki-domain-registration').'</h3>';
         }    
         $html.= '</div>';
     }
@@ -325,7 +397,7 @@ function FixFormHtml($content,$domains){
         '_FORM_EG_'=>__('eg','papaki-domain-registration'),
         '_FORM_MOBILE_'=>__('Phone (Optional)','papaki-domain-registration'),
         '_FORM_FAX_'=>__('Fax (Optional)','papaki-domain-registration'),
-        '_FORM_CONTINUE_'=>__('Continue','papaki-domain-registration'),
+        '_FORM_CONTINUE_'=>__(get_option( 'papaki_domain_reg_page_btn','Continue' ),'papaki-domain-registration'),
     );
     $content=str_replace(array_keys($replacements),array_values($replacements),$content);
     return $content;
@@ -362,7 +434,7 @@ $vp->add('#/?p=domains#i', 'papaki_domains_content');
 // Must set $this->body even if empty string
 function papaki_domains_content($v, $url)
 {  //print $url;
-    $v->title = __('Domain Names','papaki-domain-registration');
+    $v->title = __(get_option( 'papaki_domain_reg_page_title','Domain Names' ),'papaki-domain-registration');
     $v->body = "[domain_registration]";
     //$v->template = 'page'; // optional
     //$v->subtemplate = 'billing'; // optional
