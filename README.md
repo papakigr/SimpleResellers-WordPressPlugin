@@ -18,7 +18,7 @@ WP Plugin για Simple Resellers
 Οδηγίες Εγκατάστασης WP Plugin
 ------------------------------
 
-1. Κατεβάστε το WP Plugin: papaki-domain-registration-v1.5.zip
+1. Κατεβάστε το WP Plugin: papaki-domain-registration.zip
 2. Συνδεθείτε στο admin περιβάλλον διαχείρισης του WP
 3. Πατήστε στην επιλογή "Plugins"->"Add New"->"Upload Plugin"-> επιλέξτε το papaki-domain-registration-v1.5.zip ->"Install Now"-> αφού γίνει η εγκατάσταση, πατήστε "Activate Plugin"
 4. Στο "Settings"->"Domain Registration", θα πρέπει:
