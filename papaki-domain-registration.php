@@ -436,7 +436,7 @@ function papaki_domains_content($v, $url)
 {  //print $url;
     $v->title = __(get_option( 'papaki_domain_reg_page_title','Domain Names' ),'papaki-domain-registration');
     $v->body = "[domain_registration]";
-    $v->template = 'page'; // optional
+    //$v->template = 'page'; // optional
     //$v->subtemplate = 'billing'; // optional
 }
 // Creating the widget 
