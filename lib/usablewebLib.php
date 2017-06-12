@@ -72,7 +72,7 @@ class PapakiDomainNameSearch{
 	function PapakiDomainNameSearch($domainName, $ext, $lang="el",$test="False"){
 		$this->IDN=new idna_convert(array('idn_version' => 2008));
 		$this->use_curl = false;
-		$this->requestURL ="http://api.papaki.gr/register_url2.aspx";
+		$this->requestURL ="http://api.papaki.com/register_url2.aspx";
 		$this->checkBoxPrefix = $ext;
 		$this->lang = $lang;
 		//$this->type = $type;

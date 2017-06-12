@@ -12,7 +12,7 @@ function papaki_getConfigArray() {
 	// "Username" => array( "Type" => "text", "Size" => "20", "Description" => "Enter the username given from Papaki (Leave empty if Apikey is used)", ),
 //	 "Password" => array( "Type" => "password", "Size" => "20", "Description" => "Enter the password given from Papaki (Leave empty if Apikey is used)", ),
 	 "APIkey" => array( "Type" => "text", "Size" => "100", "Description" => "Enter the apikey", ),
-	 "PostUrl" => array( "Type" => "text", "Size" => "64", "Description" => "Enter http://api.papaki.gr/register_url2.aspx", ),
+	 "PostUrl" => array( "Type" => "text", "Size" => "64", "Description" => "Enter http://api.papaki.com/register_url2.aspx", ),
 	 "TestMode" => array( "Type" => "no", ),
 	 "Convert Punycode domains" => array( "Type" => "no", ),
 	);
