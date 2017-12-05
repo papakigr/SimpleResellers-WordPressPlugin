@@ -3,7 +3,7 @@
  * Plugin Name: Papaki Domain Registration
  * Plugin URI: http://www.papaki.gr
  * Description: Plugin for domain search and registration using the Papaki Reseller API
- * Version: 3.0
+ * Version: 3.0.1
  * Author: Papaki
  * License: Copyright (C) Papaki.gr - All Rights Reserved
  */
