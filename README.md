@@ -1,6 +1,7 @@
 # SimpleResellers-WordPressPlugin
 WP Plugin για Simple Resellers
 ================================
+Stable Version: 3.0.2
 Γενικές Πληροφορίες
 --------------------
 

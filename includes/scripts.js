@@ -113,7 +113,7 @@ function SearchOne(domain,tld,checked,search_others){
       }
 	  if (form.emailText.value.search(/^.+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/) == -1)
 	{
-	    return showMessage(form.emailText, pdr_script_vars.form_error_email2);
+	    showMessage(form.emailText, pdr_script_vars.form_error_email2);
 		return false;
 	}
 	 
