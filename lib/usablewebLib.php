@@ -4,7 +4,10 @@
 require 'HttpClient.class.php';
 require_once 'json.php';
 require_once 'papaki.php';
-require_once 'idna_convert.class.php';
+
+if(!class_exists('idna_convert')) {
+    require_once 'idna_convert.class.php';
+}
 
 /****************************************************************************************
  *                             UsableWeb Domain Name Search
