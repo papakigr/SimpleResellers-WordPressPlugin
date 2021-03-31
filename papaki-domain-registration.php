@@ -3,7 +3,7 @@
  * Plugin Name: Papaki Domain Registration
  * Plugin URI: http://www.papaki.gr
  * Description: Plugin for domain search and registration using the Papaki Reseller API
- * Version: 3.2.1
+ * Version: 3.2.2
  * Author: Papaki
  * License: Copyright (C) Papaki.gr - All Rights Reserved
  */
@@ -223,11 +223,11 @@ function pdr_load_scripts() {
         ));
     wp_register_style( 'pdr-styles', plugins_url( 'papaki-domain-registration/includes/styles.css' ) );
     wp_enqueue_style( 'pdr-styles' );
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '//code.jquery.com/jquery-1.11.3.min.js');
-    wp_enqueue_script('jquery');
-    wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.min.js');
-    wp_enqueue_script('jquery-migrate');
+    // wp_deregister_script( 'jquery' );
+    // wp_register_script( 'jquery', '//code.jquery.com/jquery-1.11.3.min.js');
+    // wp_enqueue_script('jquery');
+    // wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.min.js');
+    // wp_enqueue_script('jquery-migrate');
     
 }
 add_action('wp_enqueue_scripts', 'pdr_load_scripts');
@@ -280,7 +280,7 @@ function the_domain_page($atts ){
         $html.='</div>';
     }
     elseif($step=='register'){
-        $html.= '<div id="domain-registration-form">';
+        $html = '<div id="domain-registration-form">';
         $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Domain Names Registration'),'papaki-domain-registration').'</h1>';
         $domains=$_POST['domains'];
         if(empty($domains)){
@@ -293,7 +293,7 @@ function the_domain_page($atts ){
         $html.= '</div>';
     }
     elseif($step=='checkout'){
-        $html.= '<div id="domain-registration-form" class="checkout">';
+        $html = '<div id="domain-registration-form" class="checkout">';
         $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Domain Names Registration'),'papaki-domain-registration').'</h1>';
         if(SendRegistration($_POST)){
             $html.='<h3>'.__(get_option( 'papaki_domain_reg_page_success','Your registration has been sent. Our representatives will soon reply to you.' ) ,'papaki-domain-registration').'</h3>';
