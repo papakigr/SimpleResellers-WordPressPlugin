@@ -42,7 +42,7 @@ function SearchOthers(domain){
 	for(i=0;i<tlds.length;i++){
 		if(count>8) break;
 		if(tlds[i]!=tld){
-			count++;
+			// count++;
 			SearchOne(domain,tlds[i],false,false);
 		}
 	}
