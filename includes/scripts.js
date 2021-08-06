@@ -1,6 +1,7 @@
 var tlds=pdr_script_vars.search_tlds;
 var total=tlds.length-1;	  
 if(total>10) total=10;
+
 function Search3() {
 	jQuery(document).ready(function() {
 		jQuery.ajax({
@@ -23,64 +24,64 @@ function Search3() {
 	});
 }
  function Search(){
- 	var $=jQuery;
-	var domain=$('input#domain').val().replace('www.','');
+ 	//var $=jQuery;
+	var domain=jQuery('input#domain').val().replace('www.','');
 	var arr=domain.split('.');
 	domain=arr[0];
 	var found=false;
-	$('.available_tlds').empty();
-	$('form#add_domains #pd-submit').hide();
-	$('form#add_domains').show();
+	jQuery('.available_tlds').empty();
+	jQuery('form#add_domains #pd-submit').hide();
+	jQuery('form#add_domains').show();
 	
-	tld=$('select#tld').val();
+	tld=jQuery('select#tld').val();
 	SearchOne(domain,tld,true,true);	
 }
 function SearchOthers(domain){
-	var $=jQuery;
+	//var $=jQuery;
 	var count=0;
 	for(i=0;i<tlds.length;i++){
 		if(count>8) break;
 		if(tlds[i]!=tld){
-			count++;
+			// count++;
 			SearchOne(domain,tlds[i],false,false);
 		}
 	}
 }
 function SearchOne(domain,tld,checked,search_others){
-	var $=jQuery;
-	$('img#loading').css('visibility','visible');
+//	var $=jQuery;
+jQuery('img#loading').css('visibility','visible');
 	theid=tld.replace('.','_');
-	$('form#add_domains ul.available_tlds').append('<li id="'+theid+'" class="loading"><label ><input type="checkbox" name="domains[]" value=""  disabled="disabled"/>'+domain+'.'+tld+'</label></li>');
-	$.post(
+	jQuery('form#add_domains ul.available_tlds').append('<li id="'+theid+'" class="loading"><label ><input type="checkbox" name="domains[]" value=""  disabled="disabled"/>'+domain+'.'+tld+'</label></li>');
+	jQuery.post(
 		   pdr_script_vars.admin_ajax_url, 
 		   { 'domain':domain,'tld':tld,option:'com_papakidomains',format:'raw',action : 'searchdomains',_ajax_nonce : pdr_script_vars.nonce_searchdomains },
 		    function(data){
 				  theid=tld.replace('.','_');
 				 if(data[0].error){
 					 //$('form#add_domains ul.available_tlds li#'+theid).attr('title',pdr_script_vars.error_msg).append('<label><img src="'+pdr_script_vars.error_msg+'img/error.png"  /> '+data[0].domain+'</label>').show();
-					  $('form#add_domains ul.available_tlds li#'+theid+' label').append('<img src="'+pdr_script_vars.path+'/img/error.png"  /> ');
+					 jQuery('form#add_domains ul.available_tlds li#'+theid+' label').append('<img src="'+pdr_script_vars.path+'/img/error.png"  /> ');
 				 }
 				 else{
 					 if(data[0].available){
 						found=true;
 						if(checked){
 							c=' checked="checked" ';
-							$('form#add_domains ul.available_tlds li#'+theid+' label input').attr('checked',true);
+							jQuery('form#add_domains ul.available_tlds li#'+theid+' label input').attr('checked',true);
 						}
 						else c='';
 						//$('form#add_domains ul.available_tlds li#'+theid).append('<label><input type="checkbox" name="domains[]" value="'+data[0].domain+'" '+c+'/>'+data[0].domain+'</label>').show();
-						$('form#add_domains ul.available_tlds li#'+theid+' label input').removeAttr('disabled').val(data[0].domain);//.prepend('<input type="checkbox" name="domains[]" value="'+data[0].domain+'" '+c+'/> ');
-						 $('form#add_domains ul.available_tlds li#'+theid+'').addClass('available').append($('<span/>').text(pdr_script_vars.msg_avail).addClass('msg'));
-						$('form#add_domains #pd-submit').show();
+						jQuery('form#add_domains ul.available_tlds li#'+theid+' label input').removeAttr('disabled').val(data[0].domain);//.prepend('<input type="checkbox" name="domains[]" value="'+data[0].domain+'" '+c+'/> ');
+						jQuery('form#add_domains ul.available_tlds li#'+theid+'').addClass('available').append(jQuery('<span/>').text(pdr_script_vars.msg_avail).addClass('msg'));
+						jQuery('form#add_domains #pd-submit').show();
 					}
 					else{
-						$('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken');
-						$('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken').append($('<span/>').text(pdr_script_vars.msg_taken).addClass('msg'));
+						jQuery('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken');
+						jQuery('form#add_domains ul.available_tlds li#'+theid+'').addClass('taken').append(jQuery('<span/>').text(pdr_script_vars.msg_taken).addClass('msg'));
 					}
 				 }
-				 $('form#add_domains ul.available_tlds li#'+theid+'').removeClass('loading');
+				 jQuery('form#add_domains ul.available_tlds li#'+theid+'').removeClass('loading');
 				if(--total<=0){
-					$('img#loading').css('visibility','hidden');
+					jQuery('img#loading').css('visibility','hidden');
 				}
 				if(search_others){
 					SearchOthers(domain);

@@ -3,7 +3,7 @@
  * Plugin Name: Papaki Domain Registration
  * Plugin URI: http://www.papaki.gr
  * Description: Plugin for domain search and registration using the Papaki Reseller API
- * Version: 3.2.1
+ * Version: 3.2.2
  * Author: Papaki
  * License: Copyright (C) Papaki.gr - All Rights Reserved
  */
@@ -14,6 +14,35 @@ function papaki_domain_reg_init() {
     load_plugin_textdomain('papaki-domain-registration', false, dirname(plugin_basename(__FILE__)).'/languages/');
 }
 add_action('plugins_loaded', 'papaki_domain_reg_init');
+function add_admin_style () { 
+    ?>
+    <style type="text/css">
+    .settings_page_papaki-domain-registration .extensions {
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+
+    .settings_page_papaki-domain-registration .extensions span {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        justify-content: space-between;
+        width: 25%;
+        max-width: 80px;
+    }
+    .settings_page_papaki-domain-registration .extensions .row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    </style>
+    <?php 
+}
+add_action( 'admin_head', 'add_admin_style' );
 function papaki_domain_activate() {    
     $papaki_domains_page_id = get_option('papaki_domains_page_id',0);
     $page = $papaki_domains_page_id>0?get_post($papaki_domains_page_id):null;
@@ -127,12 +156,18 @@ function field_3_callback() {
         $allowed_tlds=explode(',',$allowed_tlds);
     }
     echo '<div  class="extensions">';
-     foreach($initial_tlds as $tld){
+     foreach($initial_tlds as $key => $tld){
+        if($key % 4 == 0) {
+            print '<div class="row">'; 
+        }
         print '<span><label><input type="checkbox" name="allowed_tlds[]" value="'.$tld.'" ';
         if(in_array($tld,$allowed_tlds)){
             print 'checked="checked" ';
         }
          print '/>'.strtoupper($tld).'</label></span>';
+         if($key % 4 == 3) {
+            print '</div>'; 
+        }
     }
     echo '</div>';
 }
@@ -223,11 +258,11 @@ function pdr_load_scripts() {
         ));
     wp_register_style( 'pdr-styles', plugins_url( 'papaki-domain-registration/includes/styles.css' ) );
     wp_enqueue_style( 'pdr-styles' );
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '//code.jquery.com/jquery-1.11.3.min.js');
-    wp_enqueue_script('jquery');
-    wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.min.js');
-    wp_enqueue_script('jquery-migrate');
+    // wp_deregister_script( 'jquery' );
+    // wp_register_script( 'jquery', '//code.jquery.com/jquery-1.11.3.min.js');
+    // wp_enqueue_script('jquery');
+    // wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.min.js');
+    // wp_enqueue_script('jquery-migrate');
     
 }
 add_action('wp_enqueue_scripts', 'pdr_load_scripts');
@@ -280,7 +315,7 @@ function the_domain_page($atts ){
         $html.='</div>';
     }
     elseif($step=='register'){
-        $html.= '<div id="domain-registration-form">';
+        $html = '<div id="domain-registration-form">';
         $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Domain Names Registration'),'papaki-domain-registration').'</h1>';
         $domains=$_POST['domains'];
         if(empty($domains)){
@@ -293,7 +328,7 @@ function the_domain_page($atts ){
         $html.= '</div>';
     }
     elseif($step=='checkout'){
-        $html.= '<div id="domain-registration-form" class="checkout">';
+        $html = '<div id="domain-registration-form" class="checkout">';
         $html.='<h1>'.__(get_option( 'papaki_domain_reg_search_title' ,'Domain Names Registration'),'papaki-domain-registration').'</h1>';
         if(SendRegistration($_POST)){
             $html.='<h3>'.__(get_option( 'papaki_domain_reg_page_success','Your registration has been sent. Our representatives will soon reply to you.' ) ,'papaki-domain-registration').'</h3>';
@@ -408,7 +443,7 @@ function FixFormHtml($content,$domains){
     $replacements=array(
         '_FORM_HEADER_'=>__('Domain Names','papaki-domain-registration'),
         '_FORM_INSTRUCTIONS_'=>__('Complete details of the person or company that manages <b>  the domain name(s)</b> and then press <b> CONTINUE </b> at the bottom of the page. <strong> It is important the information you provide is accurate. </strong> <BR>   The data you provide during registration is strictly private and used only by our company and the domain name Registry. <br> in no case will not be disclosed or used by others.','papaki-domain-registration'),
-        '_domainNames_'=>__(implode(',',$domains),'papaki-domain-registration'),
+        '_domainNames_'=>__(implode(', ',$domains),'papaki-domain-registration'),
         '_FORM_COMPANYNAME_'=>__('Company Name / Organization - or - <br /> Your Name','papaki-domain-registration'),
         '_FORM_COMPANY_NAME_INFO_'=>__('It is important to provide your full name or full company name. Otherwise the domain name can not be adopted by the EU','papaki-domain-registration'),
         '_FORM_FIRSTNAME_'=>__('First Name','papaki-domain-registration'),

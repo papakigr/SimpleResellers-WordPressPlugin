@@ -394,23 +394,23 @@ $sql="select * from tbldomains,tblorders  where tbldomains.orderid=tblorders.id 
 	
 	$result = mysql_query($sql);
 	while ($row = mysql_fetch_array($result)) {
-		if ($row{'contactid'}=="0"){
-			$sql2="select * from tblclients where id=".$row{'userid'}."";
+		if ($row['contactid']=="0"){
+			$sql2="select * from tblclients where id=".$row['userid']."";
 			$result2 = mysql_query($sql2);
 			while ($row2 = mysql_fetch_array($result2)) {
 			
 			
-				$params["companyname"]=$row2{'companyname'};
-				$params["firstname"]=$row2{'firstname'};
-				$params["lastname"]=$row2{'lastname'};
-				$params["address1"]=$row2{'address1'};
-				$params["address2"]=$row2{'address2'};
-				$params["city"]=$row2{'city'};
-				$params["state"]=$row2{'state'};
-				$params["postcode"]=$row2{'postcode'};
-				$params["country"]=$row2{'country'};
-				$params["email"]=$row2{'email'};
-				$params["phonenumber"]=$row2{'phonenumber'};
+				$params["companyname"]=$row2['companyname'];
+				$params["firstname"]=$row2['firstname'];
+				$params["lastname"]=$row2['lastname'];
+				$params["address1"]=$row2['address1'];
+				$params["address2"]=$row2['address2'];
+				$params["city"]=$row2['city'];
+				$params["state"]=$row2['state'];
+				$params["postcode"]=$row2['postcode'];
+				$params["country"]=$row2['country'];
+				$params["email"]=$row2['email'];
+				$params["phonenumber"]=$row2['phonenumber'];
 			}
 		}
 		
@@ -419,17 +419,17 @@ $sql="select * from tbldomains,tblorders  where tbldomains.orderid=tblorders.id 
 			$result3 = mysql_query($sql3);
 //fetch tha data from the database
 			while ($row3 = mysql_fetch_array($result3)) {
-   				 $params["companyname"]=$row3{'companyname'};
-				 $params["firstname"]=$row3{'firstname'};
-				 $params["lastname"]=$row3{'lastname'};
-				 $params["address1"]=$row3{'address1'};
-				 $params["address2"]=$row3{'address2'};
-				 $params["city"]=$row3{'city'};
-				 $params["state"]=$row3{'state'};
-				 $params["postcode"]=$row3{'postcode'};
-				 $params["country"]=$row3{'country'};
-				 $params["email"]=$row3{'email'};
-				 $params["phonenumber"]=$row3{'phonenumber'};
+   				 $params["companyname"]=$row3['companyname'];
+				 $params["firstname"]=$row3['firstname'];
+				 $params["lastname"]=$row3['lastname'];
+				 $params["address1"]=$row3['address1'];
+				 $params["address2"]=$row3['address2'];
+				 $params["city"]=$row3['city'];
+				 $params["state"]=$row3['state'];
+				 $params["postcode"]=$row3['postcode'];
+				 $params["country"]=$row3['country'];
+				 $params["email"]=$row3['email'];
+				 $params["phonenumber"]=$row3['phonenumber'];
 			}	
 		
 		}

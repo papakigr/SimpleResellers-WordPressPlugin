@@ -72,7 +72,7 @@ class PapakiDomainNameSearch
     public $errorMessage = '';
     public $IDN;
 
-    public function PapakiDomainNameSearch($domainName, $ext, $lang = "el", $test = "False")
+    public function __construct($domainName, $ext, $lang = "el", $test = "False")
     {
         $this->IDN = new idna_convert(array('idn_version' => 2008));
         $this->use_curl = false;
